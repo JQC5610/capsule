@@ -1,3 +1,17 @@
-const BASE_URL = "http://localhost:3000"
-const TRAINERS_URL = `${BASE_URL}/trainers`
-const POKEMONS_URL = `${BASE_URL}/pokemons`
+
+
+
+const li = document.createElement('li')
+const ul = document.querySelector("ul")
+
+
+
+function openForm() {
+    document.getElementById("myForm").style.display = "block";
+    }
+    function closeForm() {
+    document.getElementById("myForm").style.display = "none";
+
+    }
+
+//link form data to Playlist
