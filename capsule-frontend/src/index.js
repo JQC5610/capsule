@@ -11,7 +11,7 @@ function openForm() {
     }
     function closeForm() {
     document.getElementById("myForm").style.display = "none";
-
+        myForm.preventDefault()
     }
 
 //link form data to Playlist
