@@ -10,19 +10,39 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180502101418) do
+ActiveRecord::Schema.define(version: 20200324153349) do
 
-  create_table "pokemons", force: :cascade do |t|
-    t.string "species"
-    t.string "nickname"
-    t.integer "trainer_id"
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.integer "memory_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["trainer_id"], name: "index_pokemons_on_trainer_id"
+    t.index ["memory_id"], name: "index_comments_on_memory_id"
   end
 
-  create_table "trainers", force: :cascade do |t|
+  create_table "memories", force: :cascade do |t|
     t.string "name"
+    t.string "img_url"
+    t.string "time"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "memory_songs", force: :cascade do |t|
+    t.string "name"
+    t.integer "memory_id"
+    t.integer "song_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["memory_id"], name: "index_memory_songs_on_memory_id"
+    t.index ["song_id"], name: "index_memory_songs_on_song_id"
+  end
+
+  create_table "songs", force: :cascade do |t|
+    t.string "name"
+    t.string "artist"
+    t.string "uri"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,0 +1,3 @@
+class MemorySongsController < ApplicationController
+
+end

@@ -1,69 +1,83 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
-    <title>My Playlist</title>
+    
+      <p class="ellipsis-2 ng-binding">Capsule</p>
+      <p class="lead ng-binding">Create Memories</p>
+      <meta charset="utf-8">
+    
 
-    <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="index.css">
+    
   </head>
+
   <body>
+
+      <div class="open-memory-btn">
+        <button class="open-memory-button" onclick="openMemoryForm()"><strong>Create Memory</strong></button>
+      </div>
+      <div class="form-popup" id="myForm-memory">
+        <form method= 'POST' class="memory-form-container">
+      
+          <label for="name"><b>Memory Name</b></label>
+          <input type="text" placeholder="Enter Name" name="name" required>
+      
+          <label for="Author"><b>Author</b></label>
+          <input type="text" placeholder="Enter Your Name" name="name" required>
+      
+          <label for="Date Created"><b>Timeline</b></label>
+          <input type="text" placeholder="Date Created" name="Date Created" required>
+      
+          <label for="imgURL"><b>Image</b></label>
+          <input type="text" placeholder="Cover image" name="image" required>
+      
+
+          <button type="submit" class="btn">Create</button>
+          <button type="submit" class="btn cancel" onclick="closeMemoryForm()">Close</button>
+        </form>
+      </div>
     
-    <div id='playlist-header'>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSs1-MSFAEllYdis_LinXxXPfQYUnT2pgtDltBka7nmaiyVoE47" alt="playlist-header">
-    </div>
+  
+  
+        
 
-    <div class="container">
-        <h3>My Playlist</h3>
-
-    </div>
-
-    <h2>Create a Playlist</h2>
-    <p>Click on the "Create Playlist" button to start.</p>
-    <div class="open-btn">
-      <button class="open-button" onclick="openForm()"><strong>Create Playlist</strong></button>
-    </div>
-    <div class="form-popup" id="myForm">
-      <form method= 'POST' class="form-container">
-        <h1>Memory Name</h1>
-    
-        <label for="name"><b>Memory Name</b></label>
-        <input type="text" placeholder="Enter Name" name="name" required>
-    
-        <label for="Author"><b>Author</b></label>
-        <input type="text" placeholder="Enter Your Name" name="name" required>
-    
-        <label for="Date Created"><b>Date Created</b></label>
-        <input type="text" placeholder="Date Created" name="Date Created" required>
-    
-        <label for="imgURL"><b>Memory Cover Image</b></label>
-        <input type="text" placeholder="Cover image" name="image" required>
-    
-
-        <button type="submit" class="btn">Create</button>
-        <button type="submit" class="btn cancel" onclick="closeForm()">Close</button>
-      </form>
-    </div>
- 
-
-    <!-- <div class="container">    
-      <p style='text-align:center' >Add a new Playlist? <button id='new-toy-btn'>Create New Playlist!</button></p>
-
-      <form class="add-song-form" style="">
-        <h3>Create a Playlist!</h3>
-
-        <input type="text" name="name" value="" placeholder="Enter a song's name..." class="input-text">
-        <br>
-        <input type="text" name="image" value="" placeholder="Enter an artist image URL..." class="input-text">
-        <br>
-        <input type="submit" name="submit" value="Create Playlist" class="submit">
-      </form>
-    </div> -->
-
-
-    <div id="playist-collection">
+    <div id="memory-collection">
+<!-- ----Add Memory---- -->
     </div>
 
 
     <script type="text/javascript" src="src/index.js"></script>
+
+    <footer>
+        <div class="wrapper">
+          <div class="open-song-btn">
+            <button class="open-song-button" onclick="openSongForm()"><strong>Add Song to Library</strong></button>
+          </div>
+          <div class="song-form-popup" id="myForm-song">
+            <form method= 'POST' class="song-form-container">
+          
+              <label for="Name"><b>Song Name</b></label>
+              <input type="text" placeholder="Enter Name" name="name" required>
+          
+              <label for="Author"><b>Artist</b></label>
+              <input type="text" placeholder="Enter Artist" name="name" required>
+          
+              <label for="URI"><b>Spotify URI</b></label>
+              <input type="url" placeholder="Spotify URI" name="URI" required>
+    
+              <button type="submit" class="btn">Create</button>
+              <button type="submit" class="btn cancel" onclick="closeSongForm()">Close</button>
+            </form>
+          </div>  
+          <!-- <button>Add Song to Library</button> -->
+          <div id="song-library">
+          <ul class="library">
+            
+          </ul>
+          </div> 
+        </div>
+    </footer>
+
+
   </body>
 </html>

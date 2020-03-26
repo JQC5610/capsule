@@ -9,10 +9,26 @@ header {
   height: 50px;
 }
 
+header h1 {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -.02em;
+  line-height: 1.2;
+}
+
 header h2 {
-  padding: 10px;
+  padding: 5px;
   margin: 0;
 }
+
+label  {
+  font-size: 12px;
+}
+
+b {
+  font-size: 12px;
+}
+
 
 main {
   display: grid;
@@ -67,3 +83,4 @@ button.release {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
+
