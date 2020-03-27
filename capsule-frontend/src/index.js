@@ -1,11 +1,15 @@
 const memoriesUrl = "http://localhost:3000/memories"
 const songUrl = "http://localhost:3000/songs"
+let songUl = document.querySelector('.library')
+let songForm = document.querySelector(".song-form-container")
 
 
 
-// document.addEventListener('DOMContentLoaded', function(event){
-//     getMemories()
-// })
+document.addEventListener('DOMContentLoaded', function(event){
+
+    return getSongs()
+
+})
 
 function getMemories(){
     return fetch(memoriesUrl)
@@ -48,38 +52,75 @@ function renderMemories(memory){
         return `<li> ${comment.text} <button class="Delete" data--comment-id="${comment.id}">Delete</button></li>`
         }).join('')}
     </ul>`
-}
 
-// --------------------------------------------- Render Memory ---------------------------------------------------------------------------
+
+
+}
 
 function getSongs(){
     return fetch(songUrl)
     .then(resp => resp.json())
+    .then(json => {
+        json.forEach(song => renderSongs(song)
+        )
+    })
 }
 
 
 
-getSongs()
-    .then(json => {
-        json.forEach(song => {
-            let songUl = document.querySelector('.library')
+function renderSongs(song){            
             let songLi = document.createElement('li')
             songLi.setAttribute('class', 'card')
             songLi.dataset.id = song.id
 
-            songLi.innerHTML = renderSongs(song)
+            songLi.innerHTML = `<iframe src="https://open.spotify.com/embed/track/${song.uri}" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>`
             songUl.appendChild(songLi)
-            
-            
-        })
-    })
-
-    
-
-function renderSongs(song){
-    return `
-    ${song.name} - ${song.artist} <button class="Delete" data-song-id="${song.id}">Delete</button>`
 }
+
+
+
+
+
+
+
+
+songForm.addEventListener('submit', function(event){
+    event.preventDefault()
+    postSong(event.target)
+
+})
+
+function postSong(song_data) {
+    fetch(songUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': "application/json"
+        },
+        body: JSON.stringify({
+          "name": song_data.name.value,
+          "artist": song_data.artist.value,
+          "uri": song_data.uri.value
+        })
+      })
+      .then(resp => resp.json())
+      .then((obj_song) => {
+        let new_song = renderSongs(obj_song)
+        songUl.appendChild(new_song)
+      }) 
+  
+}
+
+
+// --------------------------------------------- Render Memory ---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
 
     
 //----------------------------------------------------Render Songs ----------------------------------------------------------------------
@@ -96,7 +137,7 @@ function renderSongs(song){
 const li = document.createElement('li')
 const ul = document.querySelector("ul")
 const memoryForm = document.querySelector("memory-form-container")
-const songForm = document.querySelector('song-form-container')
+
 
 
 function openMemoryForm() {
@@ -113,6 +154,8 @@ function openSongForm(){
 function closeSongForm(){
     document.getElementById('myForm-song').style.display = "none";
 }
+
+
 
 //click handler
     //if

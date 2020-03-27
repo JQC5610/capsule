@@ -74,3 +74,11 @@
     .form-container .btn:hover, .open-button:hover {
     opacity: 1;
     }
+
+    .wrapper:hover .hovernested {
+        display: block;
+    }
+       
+    .wrapper .hovernested {
+        display: none;
+    }

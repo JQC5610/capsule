@@ -7,7 +7,7 @@
       <meta charset="utf-8">
     
 
-      <link rel="stylesheet" href="index.css">
+      
     
   </head>
 
@@ -16,7 +16,7 @@
       <div class="open-memory-btn">
         <button class="open-memory-button" onclick="openMemoryForm()"><strong>Create Memory</strong></button>
       </div>
-      <div class="form-popup" id="myForm-memory">
+      <div class="memory-form-popup" id="myForm-memory">
         <form method= 'POST' class="memory-form-container">
       
           <label for="name"><b>Memory Name</b></label>
@@ -34,6 +34,9 @@
 
           <button type="submit" class="btn">Create</button>
           <button type="submit" class="btn cancel" onclick="closeMemoryForm()">Close</button>
+        
+          
+
         </form>
       </div>
     
@@ -42,31 +45,50 @@
         
 
     <div id="memory-collection">
+    <div class="open-memory-song-btn">
+      <button class="open-memory-song-button" onclick="openMemoryForm()"><strong>Add Song to Memory</strong></button>
+    </div>
+    <div class="memory-song-form-popup" id="myForm-memory-song">
+      <form method= 'POST' class="memory-song-form-container">
+    
+        <label for="name"><b>Memory Name</b></label>
+        <input type="text" placeholder="Enter Name" name="name" required>
+    
+        <label for="Author"><b>Author</b></label>
+        <input type="text" placeholder="Enter Your Name" name="name" required>
+    
+        <label for="Date Created"><b>Timeline</b></label>
+        <input type="text" placeholder="Date Created" name="Date Created" required>
+    
+        <label for="imgURL"><b>Image</b></label>
+        <input type="text" placeholder="Cover image" name="image" required>
+    
+
+        <button type="submit" class="btn">Create</button>
+        <button type="submit" class="btn cancel" onclick="closeMemoryForm()">Close</button>
+      
+        
+
+      </form>
+    </div>      
 <!-- ----Add Memory---- -->
     </div>
 
 
-    <script type="text/javascript" src="src/index.js"></script>
-
     <footer>
-        <div class="wrapper">
-          <div class="open-song-btn">
-            <button class="open-song-button" onclick="openSongForm()"><strong>Add Song to Library</strong></button>
-          </div>
+      <div class="wrapper">
+        <div class="hovernested">
           <div class="song-form-popup" id="myForm-song">
-            <form method= 'POST' class="song-form-container">
-          
-              <label for="Name"><b>Song Name</b></label>
-              <input type="text" placeholder="Enter Name" name="name" required>
-          
-              <label for="Author"><b>Artist</b></label>
-              <input type="text" placeholder="Enter Artist" name="name" required>
-          
-              <label for="URI"><b>Spotify URI</b></label>
-              <input type="url" placeholder="Spotify URI" name="URI" required>
-    
-              <button type="submit" class="btn">Create</button>
-              <button type="submit" class="btn cancel" onclick="closeSongForm()">Close</button>
+            <form class="song-form-container">
+
+              <input type="text" name="name" value="" placeholder="Song Name" class="input-text">
+              <br>
+              <input type="text" name="artist" value="" placeholder="Artist" class="input-text">
+              <br>
+              <input type="text" name="uri" value="" placeholder="Spotify URI (remove 'spotify:track')" class="input-text">
+              <br>
+              <input type="submit" name="submit" value="Add Song" class="submit">
+
             </form>
           </div>  
           <!-- <button>Add Song to Library</button> -->
@@ -74,10 +96,14 @@
           <ul class="library">
             
           </ul>
+          
           </div> 
         </div>
+        <div class="showfooter">Library</div>
+      </div>
     </footer>
 
-
+    <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="src/index.js"></script>
   </body>
 </html>

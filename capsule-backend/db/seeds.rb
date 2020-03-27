@@ -62,25 +62,25 @@ comment1corona = Comment.create(
 song1 = Song.create(
   name: "Euphemism",
   artist: "Tash",
-  uri: "spotify:track:0sjheOk5jAVsxt9aiAMvGg"
+  uri: "0sjheOk5jAVsxt9aiAMvGg"
 )
 
 song2 = Song.create(
   name: "Could've Been (feat. Bryson Tiller)",
   artist: "H.E.R.",
-  uri: "spotify:track:6oEVnWKgPqIEPc53OYDNqG"
+  uri: "6oEVnWKgPqIEPc53OYDNqG"
 )
 
 song3 = Song.create(
   name: "Find Someone Like You",
   artist: "Snoh Aalegra",
-  uri: "spotify:track:53SIeTHgXuAOd98hZWV2wD"
+  uri: "53SIeTHgXuAOd98hZWV2wD"
 )
 
 song4 = Song.create(
   name: "Jasmine",
   artist: "DPR LIVE",
-  uri: "spotify:track:2IgbYlOlFpiSFYnsqB39lM"
+  uri: "2IgbYlOlFpiSFYnsqB39lM"
 )
 
 memorysong1 = MemorySong.create(
